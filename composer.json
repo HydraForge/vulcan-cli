@@ -1,5 +1,6 @@
 {
   "name": "hydra-forge/vulcan-cli",
+  "version": "0.0.1",
   "bin": [
     "bin/vulcan"
   ],
