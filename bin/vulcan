@@ -4,9 +4,25 @@
 use HydraForge\VulcanCli\Commands\NewProject;
 use Symfony\Component\Console\Application;
 
-use function Laravel\Prompts\text;
+// Dynamically locate the autoload file
+$autoloadPaths = [
+    __DIR__ . '/../vendor/autoload.php',       // Path when running locally
+    __DIR__ . '/../../../autoload.php',       // Path when installed as a global Composer package
+];
 
-require_once __DIR__ . '/../vendor/autoload.php';
+$autoloadFound = false;
+foreach ($autoloadPaths as $autoloadPath) {
+    if (file_exists($autoloadPath)) {
+        require $autoloadPath;
+        $autoloadFound = true;
+        break;
+    }
+}
+
+if (!$autoloadFound) {
+    fwrite(STDERR, "Error: Could not find autoload.php. Please ensure dependencies are installed.\n");
+    exit(1);
+}
 
 $app = new Application();
 $app->addCommands([
