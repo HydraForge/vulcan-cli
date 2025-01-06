@@ -13,5 +13,6 @@
     "laravel/prompts": "^0.3.2",
     "symfony/console": "^7.2",
     "symfony/process": "^7.2"
-  }
+  },
+  "minimum-stability": "stable"
 }
