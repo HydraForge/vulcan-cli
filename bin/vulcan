@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+use HydraForge\VulcanCli\Commands\NewProject;
+use Symfony\Component\Console\Application;
+
+use function Laravel\Prompts\text;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$app = new Application();
+$app->addCommands([
+    (new NewProject()),
+]);
+$app->run();

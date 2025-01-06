@@ -1,0 +1,16 @@
+{
+  "name": "hydra-forge/vulcan-cli",
+  "bin": [
+    "bin/vulcan"
+  ],
+  "autoload": {
+    "psr-4": {
+      "HydraForge\\VulcanCli\\": "src/"
+    }
+  },
+  "require": {
+    "laravel/prompts": "^0.3.2",
+    "symfony/console": "^7.2",
+    "symfony/process": "^7.2"
+  }
+}
