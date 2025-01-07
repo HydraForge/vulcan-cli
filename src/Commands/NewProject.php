@@ -21,15 +21,19 @@ class NewProject extends Command
         ;
     }
 
-    protected function process(array $command)
+    protected function process(array $command, $pwd = null)
     {
         $output = new ConsoleOutput();
         $process = new Process($command);
+        if ($pwd) {
+            $process->setWorkingDirectory($pwd);
+        }
         $process->start();
         $iterator = $process->getIterator(Process::ITER_KEEP_OUTPUT);
         foreach ($iterator as $type => $data) {
             $output->write($data);
         }
+
         return $process;
     }
 
@@ -40,6 +44,10 @@ class NewProject extends Command
         $this->process(['git', 'clone', 'git@github.com:HydraForge/Vulcan.git', $name]);
         $this->process(['rm', '-r', $name . '/.git']);
         $this->process(['git', 'init',  $name]);
+        $this->process(['cp',  '.env.example', '.env'], $name);
+        $this->process(['composer',  'install'], $name);
+        $this->process(['bun',  'install'], $name);
+        $this->process(['bun', 'run', 'build'], $name);
 
         return 0;
     }
