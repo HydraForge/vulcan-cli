@@ -16,7 +16,7 @@ Add the following to `$HOME/.composer/composer.json`:
 run the following to install the command:
 
 ```bash
-composer global require hydra-forge/vulcan-cli
+composer global require hydraforge/vulcan-cli
 ```
 
 use the command to scaffold new projects
