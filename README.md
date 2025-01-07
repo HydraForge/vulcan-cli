@@ -1,19 +1,6 @@
 # Vulcan CLI
 
-Add the following to `$HOME/.composer/composer.json`:
-
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:HydraForge/vulcan-cli.git"
-    }
-  ]
-}
-```
-
-run the following to install the command:
+use composer to install the command globally:
 
 ```bash
 composer global require hydraforge/vulcan-cli
