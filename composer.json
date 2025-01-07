@@ -1,6 +1,7 @@
 {
-  "name": "hydra-forge/vulcan-cli",
-  "version": "0.0.1",
+  "name": "hydraforge/vulcan-cli",
+  "description": "A tool to help scaffold Vulcan projects",
+  "license": "MIT",
   "bin": [
     "bin/vulcan"
   ],
